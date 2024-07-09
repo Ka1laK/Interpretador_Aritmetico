@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+          <h1 class="display-4">G14 - Reconocedor de Expresiones Aritméticas</h1>
+          <div class="input-group mb-3">
+                <textarea id="entradaCodigo" class="form-control" name="random123" autocomplete="off" placeholder="Ingrese el código que desee..." spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
+            <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="interpretarCodigo()">Ejecutar</button>
+              </div>
+          </div>
+          <div class="output-container">
+            <h2 class="display-5">Salida</h2>
+            <pre id="salida">Resultado . . .
+
+
+            </pre>
+          </div>
+        </div>
+    </main>
+    
+    <script src="index.js"></script>
+</body>
+</html>
