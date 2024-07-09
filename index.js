@@ -73,13 +73,13 @@ class InterpreteAritmetico {
             if (tokens[0] === "(") {
                 tokens.shift();
                 const resultado = parsearExpresion();
-                if (tokens.shift() !== ")") throw new Error("¡Cerrar los paréntesis!\n");
+                if (tokens.shift() !== ")") throw new Error("!!! Falto cerrar los parentesis !!!\n");
                 return resultado;
             } else if (tokens[0] in self.variables) {
                 return ["var", tokens.shift()];
             } else {
                 if (!patronNumero.test(tokens[0])) {
-                    throw new Error(`Se esperaba un número, pero se encontró '${tokens[0]}'\n`);
+                    throw new Error(`Se esperaba un numero, pero se encontro: '${tokens[0]}'\n`);
                 }
                 return ["num", parseFloat(tokens.shift())];
             }
@@ -111,7 +111,7 @@ class InterpreteAritmetico {
                             break;
                     }
                 } else {
-                    throw new Error("Se esperaba '=' o un operador de asignación incremental\n");
+                    throw new Error("Se esperaba '=' o un operador de asignacion incremental ...\n");
                 }
 
                 if (tokens[0] === ";") {
@@ -124,8 +124,8 @@ class InterpreteAritmetico {
         }
 
         function parsearCout() {
-            tokens.shift(); // eliminar 'cout'
-            if (tokens.shift() !== "<" || tokens.shift() !== "<") throw new Error("Se esperaba '<<'\n");
+            tokens.shift();
+            if (tokens.shift() !== "<" || tokens.shift() !== "<") throw new Error("Se esperaba: ' << '\n");
             const expr = parsearExpresion();
             return ["cout", expr];
         }
@@ -160,7 +160,7 @@ class InterpreteAritmetico {
                         izquierda = evaluarNodo(nodo[1]);
                         derecha = evaluarNodo(nodo[2]);
                         if (typeof izquierda !== "number" || typeof derecha !== "number") {
-                            throw new Error("Operaciones aritméticas solo permiten números\n");
+                            throw new Error("Operaciones aritmeticas --- solo permiten numeros\n");
                         }
                         switch (op) {
                             case "sumar":
@@ -177,7 +177,7 @@ class InterpreteAritmetico {
                         variable = nodo[1];
                         valor = evaluarNodo(nodo[2]);
                         if (typeof valor !== "number") {
-                            throw new Error("Asignación solo permite números\n");
+                            throw new Error("La asignacion solo permite numeros !!!\n");
                         }
                         self.variables[variable] = valor;
                         return valor;
@@ -188,10 +188,10 @@ class InterpreteAritmetico {
                         nombreVar = nodo[1];
                         valorInc = evaluarNodo(nodo[2]);
                         if (typeof valorInc !== "number") {
-                            throw new Error("Asignación incremental solo permite números\n");
+                            throw new Error("La asignación incremental solo permite numeros !!!\n");
                         }
                         if (!(nombreVar in self.variables)) {
-                            throw new Error(`Variable '${nombreVar}' no definida\n`);
+                            throw new Error(`!!! Variable '${nombreVar}' no definida !!!\n`);
                         }
                         switch (op) {
                             case "asignar_sumar":
@@ -222,7 +222,7 @@ class InterpreteAritmetico {
                         } else if (typeof resultadoExpr === "string" && resultadoExpr in self.variables) {
                             resultados.push({ tipo: "cout", valor: self.variables[resultadoExpr] });
                         } else {
-                            resultados.push({ tipo: "error", valor: `Error: expresión '${resultadoExpr}' no válida.` });
+                            resultados.push({ tipo: "error", valor: `Error: expresion '${resultadoExpr}' no valida.` });
                         }
                         return null;
                 }
@@ -247,10 +247,10 @@ class InterpreteAritmetico {
         const simboloInvalido = /\/\s*$/;
         const divisionEntreCero = /\/\s*0/;  
         if (simboloInvalido.test(expresion)) {
-            throw new Error("Expresión incompleta: no se puede terminar con una operación de división\n");
+            throw new Error("EXPRESION INCOMPLETA: no se puede terminar con una operacion de division\n");
         }
         if (divisionEntreCero.test(expresion)) {
-            throw new Error("No se puede dividir entre cero\n");
+            throw new Error("!!!! EYYY, No se puede dividir entre cero !!!!!!!!\n");
         }
     }
 
