@@ -241,6 +241,8 @@ class InterpreteAritmetico {
         return resultados;
     }
 
+    
+
     validarExpresion(expresion) {
         const simboloInvalido = /\/\s*$/;
         const divisionEntreCero = /\/\s*0/;  
