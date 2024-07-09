@@ -79,7 +79,7 @@ class InterpreteAritmetico {
                 return ["var", tokens.shift()];
             } else {
                 if (!patronNumero.test(tokens[0])) {
-                    throw new Error(`Se esperaba un numero, pero se encontro: '${tokens[0]}'\n`);
+                    throw new Error("Se esperaba un numero, pero se encontro: '${tokens[0]}'\n");
                 }
                 return ["num", parseFloat(tokens.shift())];
             }
@@ -191,7 +191,7 @@ class InterpreteAritmetico {
                             throw new Error("La asignación incremental solo permite numeros !!!\n");
                         }
                         if (!(nombreVar in self.variables)) {
-                            throw new Error(`!!! Variable '${nombreVar}' no definida !!!\n`);
+                            throw new Error("!!! Variable '${nombreVar}' no definida !!!\n");
                         }
                         switch (op) {
                             case "asignar_sumar":
@@ -210,7 +210,7 @@ class InterpreteAritmetico {
                         return self.variables[nombreVar];
                     case "var":
                         if (!(nodo[1] in self.variables)) {
-                            throw new Error(`Variable '${nodo[1]}' no definida\n`);
+                            throw new Error("!!! Variable:  '${nodo[1]}' no definida\n");
                         }
                         return self.variables[nodo[1]];
                     case "num":
@@ -234,7 +234,7 @@ class InterpreteAritmetico {
         for (const nodo of ast) {
             const resultado = evaluarNodo(nodo);
             if (resultado !== null && resultado !== undefined) {
-                resultados.push({ tipo: "resultado", valor: resultado });
+                resultados.push({ tipo: "--> Resultado: ", valor: resultado });
             }
         }
 
@@ -250,7 +250,7 @@ class InterpreteAritmetico {
             throw new Error("EXPRESION INCOMPLETA: no se puede terminar con una operacion de division\n");
         }
         if (divisionEntreCero.test(expresion)) {
-            throw new Error("!!!! EYYY, No se puede dividir entre cero !!!!!!!!\n");
+            throw new Error("!!!! EYYY, No se puede dividir entre cero !!!!\n");
         }
     }
 
