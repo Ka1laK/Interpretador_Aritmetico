@@ -1,6 +1,6 @@
 # RECONOCEDOR DE EXPRESIONES ARITMÉTICAS
 
-Esta funciona como un intérprete aritmético avanzado que permite a los usuarios evaluar expresiones matemáticas complejas directamente en el navegador. 
+Esta página funciona como un intérprete aritmético avanzado que permite a los usuarios evaluar expresiones matemáticas complejas directamente en el navegador. 
 Utiliza una clase InterpreteAritmetico para procesar la entrada del usuario, realizar cálculos aritméticos, y manejar variables y asignaciones. 
 El intérprete puede manejar operaciones básicas, expresiones con paréntesis, y la asignación y manipulación de variables. 
 Además, ofrece funcionalidades de error robustas para errores comunes como la división por cero o símbolos inválidos al final de la expresión.
